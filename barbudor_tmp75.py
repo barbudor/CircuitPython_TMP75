@@ -37,8 +37,7 @@ Memory usage (tested with CircuitPython 4.0.0beta7 on CircuitPlayground Express)
 
 **Hardware:**
 
-* `Temperature Sensor with I2C SMBus Interface in Industry Standard LM75 Form Factor & Pinout:
-<http://www.ti.com/product/TMP75>`_
+* `Temperature Sensor with I2C SMBus Interface in Industry Standard LM75 Form Factor & Pinout <http://www.ti.com/product/TMP75>`_
 
 * Available breakouts : none known
 
