@@ -30,9 +30,10 @@ CircuitPython driver for the Texas Instruments' TMP75 I2C temperature sensor.
 Implementation Notes
 --------------------
 
-Memory usage (tested with CircuitPython 4.0.0beta6 on CircuitPlayground Express):
-* from barbudor_tmp75 import TMP75            --> ???? bytes (not tested)
-* tmp75 = TMP75(i2c_bus)                      --> ???? bytes (not tested)
+Memory usage (tested with CircuitPython 4.0.0beta7 on CircuitPlayground Express):
+
+* from barbudor_tmp75 import TMP75            --> 3184 bytes (not tested)
+* tmp75 = TMP75(i2c_bus)                      -->   96 bytes (not tested)
 
 **Hardware:**
 
