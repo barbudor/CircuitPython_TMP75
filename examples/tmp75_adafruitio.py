@@ -22,7 +22,7 @@ import board
 import barbudor_tmp75
 
 # import Adafruit IO REST client.
-from Adafruit_IO import Client, Feed
+from Adafruit_IO import Client, Feed, errors
 
 # Set to your Adafruit IO username.
 # Set to your Adafruit IO key.
@@ -44,10 +44,10 @@ aio = Client(ADAFRUIT_IO_USERNAME, ADAFRUIT_IO_KEY)
 # Set up Adafruit IO Feeds.
 try:
     tmp75_feed = aio.feeds(FEED_NAME)
-except:
+except errors.RequestError:
     feed = Feed(name=FEED_NAME)
     tmp75_feed = aio.create_feed(feed)
-
+    print("Created feed %s" % FEED_NAME)
 
 # Set up TMP75 Sensor
 tmp75_sensor = barbudor_tmp75.TMP75(board.I2C())
@@ -56,12 +56,14 @@ tmp75_error = False
 while True:
     try:
         if tmp75_error: # if an error occured, re-write config register with 12 bits mode
+            # pylint: disable=protected-access
             tmp75_sensor.config = barbudor_tmp75._CONFIG_CONVERTER_12BITS
+            # pylint: enable=protected-access
         temp = '%.2f'%(tmp75_sensor.temperature_in_C)
         print('Temp2=%sC'%(temp))
         aio.send(tmp75_feed.key, temp)
         tmp75_error = False
-    except:
+    except OSError:
         print('Failed to read TMP75, trying again in ', READ_TIMEOUT, 'seconds')
         tmp75_error = True
 
