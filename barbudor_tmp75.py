@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2019 Barbudor (IRL Jean-Michel Mercier)
+# Copyright (c) 2019 Barbudor (Jean-Michel Mercier)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,22 +23,21 @@
 `barbudor_tmp75`
 ====================================================
 
-CircuitPython driver for the Texas Instruments' TMP75 I2C temprature sensor.
-Product page <http://www.ti.com/product/TMP75>.
+CircuitPython driver for the Texas Instruments' TMP75 I2C temperature sensor.
 
-* Author : Barbudor (IRL Jean-Michel Mercier)
+* Author : Barbudor (Jean-Michel Mercier)
 
 Implementation Notes
 --------------------
 
 Memory usage (tested with CircuitPython 4.0.0beta6 on CircuitPlayground Express):
-    from barbudor_tmp75 import TMP75            --> ???? bytes (not tested)
-    tmp75 = TMP75(i2c_bus)                      --> ???? bytes (not tested)
+* from barbudor_tmp75 import TMP75            --> ???? bytes (not tested)
+* tmp75 = TMP75(i2c_bus)                      --> ???? bytes (not tested)
 
 **Hardware:**
 
-* `Temperature Sensor with I2C/SMBus Interface in Industry Standard LM75 Form Factor & Pinout :
-    <http://www.ti.com/product/TMP75>`_
+* `Temperature Sensor with I2C/SMBus Interface in Industry Standard LM75 Form Factor & Pinout:
+<http://www.ti.com/product/TMP75>`_
 
 * Available breakouts : none known
 
@@ -48,8 +47,12 @@ Memory usage (tested with CircuitPython 4.0.0beta6 on CircuitPlayground Express)
 * Adafruit's Bus Device library: https://github.com/adafruit/Adafruit_CircuitPython_BusDevice
 """
 
+# imports
 from micropython import const
 from adafruit_bus_device.i2c_device import I2CDevice
+
+__version__ = "0.0.0-auto.0"
+__repo__ = "https://github.com/barbudor/Barbudor_CircuitPython_TMP75.git"
 
 
 # pylint: disable=bad-whitespace
@@ -106,13 +109,11 @@ class TMP75:
         return temp
 
     def _write16(self, reg, value):
-        """Write value in device register"""
         seq = bytearray([reg, (value >> 8) & 0xFF, value & 0xFF])
         with self.i2c_device as i2c:
             i2c.write(seq)
 
     def _read16(self, reg):
-        """Return value from device register"""
         buf = bytearray(3)
         buf[0] = reg
         with self.i2c_device as i2c:
@@ -122,13 +123,11 @@ class TMP75:
         return value
 
     def _write8(self, reg, value):
-        """Write value in device register"""
         seq = bytearray([reg, value & 0xFF])
         with self.i2c_device as i2c:
             i2c.write(seq)
 
     def _read8(self, reg):
-        """Return value from device register"""
         buf = bytearray(2)
         buf[0] = reg
         with self.i2c_device as i2c:
