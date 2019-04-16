@@ -32,8 +32,8 @@ Implementation Notes
 
 Memory usage (tested with CircuitPython 4.0.0beta7 on CircuitPlayground Express):
 
-* from barbudor_tmp75 import TMP75            --> 3184 bytes (not tested)
-* tmp75 = TMP75(i2c_bus)                      -->   96 bytes (not tested)
+* from barbudor_tmp75 import TMP75            --> 3184 bytes
+* tmp75 = TMP75(i2c_bus)                      -->   96 bytes
 
 **Hardware:**
 
