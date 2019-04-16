@@ -56,7 +56,7 @@ tmp75_error = False
 while True:
     try:
         if tmp75_error: # if an error occured, re-write config register with 12 bits mode
-            tmp75_sensor.config = barbudor_tmp75.C_CONFIG_CONVERTER_12BITS
+            tmp75_sensor.config = barbudor_tmp75._CONFIG_CONVERTER_12BITS
         temp = '%.2f'%(tmp75_sensor.temperature_in_C)
         print('Temp2=%sC'%(temp))
         aio.send(tmp75_feed.key, temp)

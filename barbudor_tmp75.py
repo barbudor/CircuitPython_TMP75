@@ -23,7 +23,7 @@
 `barbudor_tmp75`
 ====================================================
 
-CircuitPython driver for the Texas Instruments' TMP75 I2C temperature sensor.
+CircuitPython driver for the Texas Instruments TMP75 I2C temperature sensor.
 
 * Author : Barbudor (Jean-Michel Mercier)
 
