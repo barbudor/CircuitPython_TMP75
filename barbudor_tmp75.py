@@ -37,9 +37,10 @@ Memory usage (tested with CircuitPython 4.0.0beta7 on CircuitPlayground Express)
 
 **Hardware:**
 
-* `Temperature Sensor with I2C SMBus Interface in Industry Standard LM75 Form Factor & Pinout <http://www.ti.com/product/TMP75>`_
+* Device: `TMP75 <http://www.ti.com/product/TMP75>`_ Temperature Sensor with I2C SMBus Interface
+in Industry Standard LM75 Form Factor & Pinout
 
-* Available breakouts : none known
+* Available breakouts: none known
 
 **Software and Dependencies:**
 
@@ -55,7 +56,7 @@ __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/barbudor/Barbudor_CircuitPython_TMP75.git"
 
 
-# pylint: disable=bad-whitespace
+# pylint: disable=bad-whitespace,invalid-name
 
 _DEFAULT_ADDRESS                = const(0x48)
 

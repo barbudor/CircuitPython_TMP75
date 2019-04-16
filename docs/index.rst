@@ -26,7 +26,7 @@ Table of Contents
 .. toctree::
     :caption: Related Products
 
-    Texas Instruments TMP75 product page <<http://www.ti.com/product/TMP75>
+    Texas Instruments TMP75 product page <http://www.ti.com/product/TMP75>
 
 .. toctree::
     :caption: Other Links
