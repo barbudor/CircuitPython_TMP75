@@ -22,7 +22,7 @@ setup(
     use_scm_version=True,
     setup_requires=['setuptools_scm'],
 
-    description="CircuitPython driver library for TMP75 I2C temperature sensor',
+    description='CircuitPython driver library for TMP75 I2C temperature sensor',
     long_description=long_description,
     long_description_content_type='text/x-rst',
 
